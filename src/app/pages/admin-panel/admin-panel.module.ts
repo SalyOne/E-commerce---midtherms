@@ -2,7 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { AdminPanelRoutingModule } from './admin-panel-routing.module';
-import { AdminPanelComponent } from './admin-panel/admin-panel.component';
+import {AdminPanelComponent} from "./admin-panel.component";
+import {ActivatedRoute, RouterModule} from "@angular/router";
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import { AdminPanelComponent } from './admin-panel/admin-panel.component';
   ],
   imports: [
     CommonModule,
-    AdminPanelRoutingModule
+    AdminPanelRoutingModule,
+    RouterModule
   ]
 })
 export class AdminPanelModule { }

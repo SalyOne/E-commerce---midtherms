@@ -1,32 +1,33 @@
-<header class="container d-flex align-items-center justify-content-between">
-  <div class="image-container">
-    <img src="" alt="main logo" routerLink="['']">
-  </div>
+<header class="container-fluid  p-0">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light w-100 p-2 d-flex align-items-center justify-content-between">
+    <div class="image-container">
+      <img src="" alt="main logo" routerLink="['/']">
+    </div>
 
-  <nav class="">
-    <ul class="d-flex justify-content-between align-items-center">
-      <li> <a routerLink="products"> products</a></li>
 
-      <ng-container> <!--// *ngIf="authService.isAuth; else notAuth"-->
-        <li>
-          <a routerLink="/cart">Cart <span class="badge bg-secondary"> 0</span></a>  <!--  {{cartCount}}-->
-        </li>
+    <ul class=" main-menu d-flex justify-content-between align-items-center">
+      <li> <a routerLink="products"> Products</a></li>
+
+      <ng-container *ngIf="userLoggedIn; else notAuth">
+        <li> <a routerLink="/cart">Cart <span class="badge bg-secondary"> 0</span></a>  <!--  {{cartCount}}--></li>
         <li>
           <div class="dropdown">
           <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-            <!--            {{ authService.email}}--> saxeli
+             {{user?.firstName}} {{ user?.lastName}}
           </button>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" routerLink="/content-manager/products">Product manager</a></li>
+            <li><a class="dropdown-item" routerLink="/admin-panel">Product manager</a></li>
             <li><a class="dropdown-item" routerLink="/orders">Orders</a></li>
-            <li><a class="dropdown-item" >Logout</a></li><!--      (click)="logout()"      -->
+            <li><a class="dropdown-item" (click)="logout()">Logout</a></li>
           </ul>
         </div>
         </li>
       </ng-container>
       <ng-template #notAuth>
-        <li><a href="" routerLink="/auth/register"> Register/login </a> </li>
+        <li> <a routerLink="/auth/login"> Login </a> </li>
+        <li> <a routerLink="/auth/register"> Register </a> </li>
       </ng-template>
+
       <li> search?? </li>
     </ul>
   </nav>

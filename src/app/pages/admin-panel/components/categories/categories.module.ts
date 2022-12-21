@@ -2,8 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { CategoriesRoutingModule } from './categories-routing.module';
-import { CategoriesComponent } from './categories/categories.component';
 import { CategoriesAddEditComponent } from './categories-add-edit/categories-add-edit.component';
+import {CategoriesComponent} from "./categories.component";
 
 
 @NgModule({
@@ -15,5 +15,6 @@ import { CategoriesAddEditComponent } from './categories-add-edit/categories-add
     CommonModule,
     CategoriesRoutingModule
   ]
+
 })
 export class CategoriesModule { }
