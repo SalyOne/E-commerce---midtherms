@@ -1,0 +1,12 @@
+<div class="product-item-container"><!--   routerLink=['product-details', id]-->
+  <div class="image-container">
+    <img src="#" alt="product image">
+  </div>
+  <div class="content-container">
+    <h2 class="title">product name</h2>
+    <p> price</p>
+<!--    old price-->
+    <!--    <input type="number">-->
+    <button (click)="$event.stopPropagation()">add to card</button><!-- visible if auth *ngIF -->
+  </div>
+</div>
