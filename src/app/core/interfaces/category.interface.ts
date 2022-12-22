@@ -5,10 +5,3 @@ export interface ICategory {
 }
 
 
-export interface ICategoryResponse {
-  id: number;
-  name: string;
-  createdAt: Date;
-  updatedAt: Date;
-  deletedAt?: any;
-}

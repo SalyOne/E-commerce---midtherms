@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {AuthService} from "../../../../core/services/auth.service";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
+import {Subject, takeUntil} from "rxjs";
 
 @Component({
   selector: 'app-login',
@@ -14,6 +15,8 @@ export class LoginComponent implements OnInit {
       password: new FormControl('', Validators.required)
     }
   );
+  sub$ = new Subject()
+
 
   constructor(
     private authService: AuthService,
@@ -30,9 +33,15 @@ export class LoginComponent implements OnInit {
     if(this.form.invalid) return
 
     // console.log(this.form.value)
-    this.authService.signIn(this.form.value).subscribe((res)=>{
+    this.authService.signIn(this.form.value)
+      .pipe(takeUntil(this.sub$)).subscribe((res)=>{
       // console.log(res)
       this.router.navigate(['/'])
     })
+  }
+
+  ngOnDestroy(): void {
+    this.sub$.next(null);
+    this.sub$.complete()
   }
 }

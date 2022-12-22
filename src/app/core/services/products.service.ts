@@ -14,7 +14,12 @@ export class ProductsService extends BaseService {
     return this.post<IProduct>('product', param)
   }
 
-  getAll():Observable<IProduct[]>{
-    return this.get<IProduct[]>('product')
+  getAllProd():Observable<IProduct[]>{
+    return this.getAll<IProduct[]>('product')
+  }
+
+
+  deleteProduct(id: string): Observable<IProduct> {
+    return this.delete<IProduct>(`product/${id}`);
   }
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {IProduct} from "../../../../core/interfaces/products.interface";
 import {Subject, takeUntil} from "rxjs";
 import {ProductsService} from "../../../../core/services/products.service";
@@ -8,7 +8,7 @@ import {ProductsService} from "../../../../core/services/products.service";
   templateUrl: './products-panel.component.html',
   styleUrls: ['./products-panel.component.scss']
 })
-export class ProductsPanelComponent implements OnInit {
+export class ProductsPanelComponent implements OnInit, OnDestroy {
   products: IProduct[] = []
   sub$ = new Subject();
   constructor(
@@ -16,20 +16,28 @@ export class ProductsPanelComponent implements OnInit {
   ) { }
 
 
+
   ngOnInit(): void {
     this.getAllProducts()
   }
 
   getAllProducts(){
-    this.productsService.getAll()
+    this.productsService.getAllProd()
       .pipe(takeUntil(this.sub$))
       .subscribe((res)=>{
         this.products = res;
       })
   }
-
-
-  deleteProduct(id:any ){
-
+  deleteProductItem(id:any ){
+    this.productsService.deleteProduct(id)
+      .pipe(takeUntil(this.sub$))
+      .subscribe((res)=>{
+        this.getAllProducts()
+        }
+      )
+  }
+  ngOnDestroy(): void {
+    this.sub$.next(null);
+    this.sub$.complete()
   }
 }
