@@ -1,10 +1,10 @@
-<div class="product-item-container"><!--   routerLink=['product-details', id]-->
+<div *ngIf="product" class="product-item-container"><!--   routerLink=['product-details', id]-->
   <div class="image-container">
-    <img src="#" alt="product image">
+    <img src="{{product.image}}" alt="product image">
   </div>
   <div class="content-container">
-    <h2 class="title">product name</h2>
-    <p> price</p>
+    <h2 class="title">{{product.name}}</h2>
+    <p> {{product.price | currency: 'USD'}}</p>
 <!--    old price-->
     <!--    <input type="number">-->
 

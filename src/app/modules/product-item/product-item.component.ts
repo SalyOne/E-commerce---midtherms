@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {AuthService} from "../../core/services/auth.service";
+import {IProduct} from "../../core/interfaces/products.interface";
 
 @Component({
   selector: 'app-product-item',
@@ -10,6 +11,7 @@ export class ProductItemComponent implements OnInit {
   get userLoggedIn(){
     return this.authService.token
   }
+  @Input() product: IProduct = {} as IProduct
 
   constructor(
     private authService :AuthService
