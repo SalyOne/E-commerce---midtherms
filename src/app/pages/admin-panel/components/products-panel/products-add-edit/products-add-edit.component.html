@@ -6,20 +6,16 @@
       <input type="text" class="form-control" id="title" placeholder="Title"
              formControlName="name">
     </div>
-<!--    <div class="mb-3">-->
-<!--      <label for="title" class="form-label">Category</label>-->
-<!--      <select class="form-select" aria-label="Default select example"-->
-
-<!--              [ngModel]="categoryId"-->
-<!--              [ngModelOptions]="{standalone : true}"-->
-<!--              (ngModelChange)="categoryChanged($event)"   >-->
+    <div class="mb-3">
+      <label for="title" class="form-label">Category</label>
+      <select class="form-select" aria-label="Default select example" formControlName="categoryId">
 <!--        <ng-container *ngIf="categories$ | async as categories">-->
-<!--          <option *ngFor="let category of categories" [value]="category.id">-->
-<!--            {{category.title}}-->
-<!--          </option>-->
+          <option *ngFor="let category of categories$ | async" [value]="category.id">
+            {{category.name}}
+          </option>
 <!--        </ng-container>-->
-<!--      </select>-->
-<!--    </div>-->
+      </select>
+    </div>
     <div class="mb-3">
       <label for="price" class="form-label">Price</label>
       <input type="number" class="form-control" id="price" placeholder="Price"

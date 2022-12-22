@@ -19,12 +19,13 @@
     <tbody>
     <ng-container *ngIf="products">
       <tr *ngFor="let product of products">
-        <th scope="row">{{product.id}}</th>
+        <td scope="row"><img src="{{product.image}}" alt="product image"></td>
         <td>{{product.name}}</td>
         <td>{{product.price | currency: 'USD'}}</td>
+        <td>{{product.category.name}}</td>
 <!--        <td>{{product.categories?.title}}</td>-->
         <td>
-          <button class="btn btn-primary" routerLink="/content-manager/products/edit/{{product.id}}">Edit</button>
+          <button class="btn btn-primary" [routerLink]="['/admin-panel/products-panel/edit', product.id]">Edit</button>
           <button class="btn btn-danger" (click)="deleteProductItem(product.id)">Delete</button>
         </td>
       </tr>
