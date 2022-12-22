@@ -11,16 +11,5 @@ export interface IProduct  {
   updatedAt: Date;
   deletedAt?: Date;
 }
-export interface IProductResponse{
-  name: string;
-  description: string;
-  price: number;
-  image: string;
-  category: ICategory;
-  deletedAt?: Date;
-  id: string;
-  createdAt: Date;
-  updatedAt: Date;
-}
 
 

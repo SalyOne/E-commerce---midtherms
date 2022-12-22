@@ -16,5 +16,12 @@ export class BaseService {
   post<T>(url:string, body:any) :Observable<T>{
     return this.http.post<T>(this.apiUrl + url, body);
   }
+  get<T>(url:string) :Observable<T>{
+    return this.http.get<T>(this.apiUrl + url);
+  }
+
+  // delete<T>(url:string) :Observable<T>{
+  //   return this.http.get<T>(this.apiUrl + url);
+  // }
 
 }
