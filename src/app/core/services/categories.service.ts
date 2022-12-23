@@ -10,11 +10,11 @@ export class CategoriesService extends BaseService{
 
 
   getAllCat() :Observable<ICategory[]>{
-    return this.getAll<ICategory[]>('category')
+    return this.get<ICategory[]>('category')
   }
 
   getOneCat(id: number): Observable<ICategory>{
-    return this.getOne<ICategory>(`category/${id}`);
+    return this.get<ICategory>(`category/${id}`);
   }
   createCat(value: ICategory){
      return this.post<ICategory>('category', value)

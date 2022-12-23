@@ -10,16 +10,29 @@ import {Observable} from "rxjs";
 export class ProductsService extends BaseService {
 
 
+  getProducts(params: {
+    categoryId?: number | null,
+    limit?: number,
+    search?: string,
+    similar?: string
+  }): Observable<IProduct[]> {
+    return this.get<IProduct[]>('product', params)
+  }
+
+
+
+
+  getAllProd():Observable<IProduct[]>{
+    return this.get<IProduct[]>('product')
+  }
+
   addProduct(param: IProduct):Observable<IProduct>{
     return this.post<IProduct>('product', param)
   }
   getOneProd(id: string):Observable<IProduct> {
-    return this.getOne<IProduct>(`product/${id}`);
+    return this.get<IProduct>(`product/${id}`);
   }
 
-  getAllProd():Observable<IProduct[]>{
-    return this.getAll<IProduct[]>('product')
-  }
   updateProd(id:string, body:IProduct):Observable<IProduct>{
     return this.put<IProduct>(`product/${id}`,body)
   }

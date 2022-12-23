@@ -2,11 +2,19 @@
   <div class="row">
     <div class="categories-side col-4">
       <ul class="categories-list list-group" >
-        <a class="list-group-item" routerLinkActive="active" *ngFor="let cat of categories"> {{cat.name}} </a>
+        <a [routerLink]="['/products']"
+           class="list-group-item list-group-item-action">All</a>
+        <a *ngFor="let category of categories$ | async"
+           [routerLink]="['/products']"
+           [queryParams]="{category: category.id}"
+           routerLinkActive="active"
+           class="list-group-item list-group-item-action">
+          {{category.name}}
+        </a>
       </ul>
     </div>
-    <div class="product-side col-8 d-flex gap-3">
-        <div class="row">
+    <div class="product-side col-8 d-flex flex-fill gap-3">
+        <div class="flex-fill row">
           <div class="col-4 my-3" *ngFor="let product of products" >
             <app-product-item  [product]="product"></app-product-item>
           </div>
