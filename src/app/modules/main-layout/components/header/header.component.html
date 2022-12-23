@@ -2,7 +2,7 @@
   <div class="row">
     <nav class="navbar navbar-expand-lg navbar-light bg-light w-100 px-3 d-flex align-items-center justify-content-between">
       <div class="image-container">
-        <img src="" alt="main logo" routerLink="['/']">
+        <img src="" alt="main logo" routerLink="/">
       </div>
 
 
@@ -10,7 +10,7 @@
         <li> <a routerLink="products"> Products</a></li>
 
         <ng-container *ngIf="userLoggedIn; else notAuth">
-          <li> <a routerLink="/cart">Cart <span class="badge bg-secondary"> 0</span></a>  <!--  {{cartCount}}--></li>
+          <li> <a routerLink="/cart">Cart <span class="badge bg-secondary"> {{cartCount$ | async }}</span></a>  <!--  {{cartCount}}--></li>
           <li>
             <div class="dropdown">
               <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
