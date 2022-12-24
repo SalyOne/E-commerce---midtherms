@@ -1,1 +1,20 @@
-<p>orders works!</p>
+<table class="table">
+  <thead>
+  <tr>
+    <th scope="col">Order Id</th>
+    <th scope="col">Date</th>
+    <th scope="col">Status</th>
+    <th scope="col">Price</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let item of Order$ | async">
+    <th scope="row">
+      {{item.id}}
+    </th>
+    <td>{{item.createdAt}}</td>
+    <td>{{item.pending}}</td>
+    <td>{{item.subTotal | currency : "USD"}}</td>
+  </tr>
+  </tbody>
+</table>

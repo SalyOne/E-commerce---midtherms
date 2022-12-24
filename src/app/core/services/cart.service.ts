@@ -18,7 +18,6 @@ export class CartService extends BaseService
     return this.get('cart')
       .pipe(
         tap((carts: any) => {
-          console.log(carts.reduce((acc: number, item: ICart) => acc + item.quantity, 0))
           this.cartCount.next(carts.reduce((acc: number, item: ICart) => acc + item.quantity, 0))
         })
       );
@@ -28,9 +27,17 @@ export class CartService extends BaseService
     return user ? JSON.parse(user) :null;
   }
 
+
+
   postToCart(item: { productId:string, quantity: number }): Observable<ICart>{
      return  this.post<ICart>('cart', item)
+              .pipe(
+                tap(()=>{
+                  this.cartCount.next(this.cartCount.value + item.quantity)
+                })
+              )
   }
+
   deleteCartItem(id:number):Observable<ICart>{
     return this.delete<ICart>(`cart/${id}`)
   }

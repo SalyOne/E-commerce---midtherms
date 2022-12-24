@@ -15,7 +15,12 @@
     </th>
     <td>{{item.item.name}}</td>
     <td>{{item.item.price | currency : "USD"}}</td>
-    <td>{{item.quantity}}</td>
+    <td>
+<!--      <span (click)="reduceQuantity(item)"> - </span>-->
+      <span >{{item.quantity}}</span>
+<!--      <input type="number" value="{{item.quantity}}">-->
+<!--      <span (click)="addQuantity(item)"> +</span>-->
+    </td>
     <td><button class="btn btn-danger" (click)="deleteCart(item.id)">Delete</button></td>
   </tr>
   </tbody>
@@ -26,7 +31,7 @@
       <li class="list-group-item">Total price: {{ cartSum | currency : "USD"}}</li>
     </ul>
     <div class="mt-4 align-self-end">
-      <button class="btn btn-primary" >Checkout</button>
+      <button class="btn btn-primary" (click)="checkout()" >Checkout</button>
     </div>
   </div>
 </div>

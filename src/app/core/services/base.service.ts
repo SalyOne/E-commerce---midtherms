@@ -13,7 +13,7 @@ export class BaseService {
   ) { }
 
 
-  post<T>(url:string, body:any) :Observable<T>{
+  post<T>(url:string, body?:any) :Observable<T>{
     return this.http.post<T>(this.apiUrl + url, body);
   }
   put<T>(url: string, body?: any): Observable<T> {
