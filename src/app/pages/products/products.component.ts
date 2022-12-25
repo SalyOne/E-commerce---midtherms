@@ -23,6 +23,7 @@ export class ProductsComponent implements OnInit,OnDestroy {
   products:IProduct[] = []
   sub$ = new Subject();
   categoryId?: number
+  search: any;
 
 
   ngOnInit(): void {
@@ -30,16 +31,26 @@ export class ProductsComponent implements OnInit,OnDestroy {
 
     this.route.queryParams.subscribe(params => {
       this.categoryId = params['category']
-      // this.search = params['search']
+      this.search = params['search']
       this.getAllProducts()
     })
 
   }
 
+  searchHandle(search: string) {
+      if (search.length>3){
+        this.search = search
+        this.getAllProducts()
+      }
+      else {
+        this.search = null
+        this.getAllProducts()
+      }
+  }
   getAllProducts(){
     const params = {
       categoryId: this.categoryId || null,
-      // search: this.search || null
+      search: this.search || null
     }
    this.prodService.getProducts(params)
      .pipe(takeUntil(this.sub$))
@@ -53,4 +64,5 @@ export class ProductsComponent implements OnInit,OnDestroy {
     this.sub$.next(null)
     this.sub$.complete()
   }
+
 }

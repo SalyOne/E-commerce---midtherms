@@ -13,9 +13,12 @@
         </a>
       </ul>
     </div>
-    <div class="product-side col-8 d-flex flex-fill gap-3">
+    <div class="product-side col-8 flex-fill gap-3">
+      <div class="row">
+        <input type="search" class="form-control" placeholder="Search" [ngModel]="search" (ngModelChange)="searchHandle($event)">
+      </div>
         <div class="flex-fill row">
-          <div class="col-4 my-3" *ngFor="let product of products" >
+          <div class="col-lg-4 col-xl-4 my-3 col-sm-6 col-12 " *ngFor="let product of products" >
             <app-product-item  [product]="product"></app-product-item>
           </div>
         </div>

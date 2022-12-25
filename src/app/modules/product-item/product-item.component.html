@@ -1,13 +1,15 @@
-<div *ngIf="product" class="product-item-container"><!--   routerLink=['product-details', id]-->
+
+<div
+  *ngIf="product"
+  [routerLink]="['/products',product.id]"
+  class="product-item-container" >
   <div class="image-container">
     <img src="{{product.image}}" alt="product image">
   </div>
   <div class="content-container">
     <h2 class="title">{{product.name}}</h2>
     <p> {{product.price | currency: 'USD'}}</p>
-<!--    old price-->
-    <!--    <input type="number">-->
-
     <button  class="btn btn-primary" (click)="addToCart($event)" *ngIf="userLoggedIn">add to card</button>
   </div>
 </div>
+

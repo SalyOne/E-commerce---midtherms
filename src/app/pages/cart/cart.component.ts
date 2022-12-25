@@ -3,7 +3,7 @@ import {CartService} from "../../core/services/cart.service";
 import {map, Subject, takeUntil, tap} from "rxjs";
 import {ICart} from "../../core/interfaces/cart.interface";
 import {OrdersService} from "../../core/services/orders.service";
-import {ActivatedRoute, Route} from "@angular/router";
+import {ActivatedRoute,  Router} from "@angular/router";
 
 @Component({
   selector: 'app-cart',
@@ -14,11 +14,11 @@ export class CartComponent implements OnInit, OnDestroy {
   sub$ = new Subject()
   cartItems: ICart[] = []
   cartSum = 0;
-  cartItemQuantity: any;
+  isPlaced: boolean = false;
   constructor(
     private cartServ:CartService,
     private orderServ:OrdersService,
-    private route:ActivatedRoute,
+    private route:Router,
   ) { }
 
   ngOnInit(): void {
@@ -48,6 +48,7 @@ export class CartComponent implements OnInit, OnDestroy {
       .pipe(takeUntil(this.sub$))
       .subscribe(()=>{
         this.getAllCarts()
+        this.isPlaced = true
     })
   }
  //
