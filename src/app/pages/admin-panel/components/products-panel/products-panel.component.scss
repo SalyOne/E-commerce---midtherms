@@ -1,4 +1,37 @@
 
+@import "src/assets/scss/common";
+.product-table{
+  thead{
+    tr{
+      th{
+        font-family: $title-font;
+        text-transform: capitalize;
+      }
+    }
+  }
+  tbody{
+    tr{
+      th, td{
+        font-family: $text-font;
+        text-transform: capitalize;
+        font-size: 18px;
+      }
+    }
+
+  }
+}
+.button-primary{
+  margin-right: 5px;
+}
+.first-row{
+  font-family: $text-font;
+  text-transform: capitalize;
+  .title{
+    font-family: $title-font;
+    font-size: 22px;
+  }
+}
+
 img{
   width: 90px;
 }

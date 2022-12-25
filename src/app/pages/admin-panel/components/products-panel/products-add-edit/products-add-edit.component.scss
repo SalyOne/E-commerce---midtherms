@@ -1,0 +1,17 @@
+
+@import "src/assets/scss/common";
+label{
+  font-family: $title-font;
+}
+input, textarea{
+  font-family: $text-font;
+  text-transform: capitalize;
+
+}
+select{
+  font-family: $text-font;
+  text-transform: capitalize;
+  option{
+    text-transform: capitalize;
+  }
+}

@@ -35,7 +35,6 @@ export class LoginComponent implements OnInit {
     // console.log(this.form.value)
     this.authService.signIn(this.form.value)
       .pipe(takeUntil(this.sub$)).subscribe((res)=>{
-      // console.log(res)
       this.router.navigate(['/'])
     })
   }

@@ -1,11 +1,14 @@
 
-<div class="container">
+<div class="container product-component">
   <div class="row">
-    <div class="list-side col-4 list-group">
-      <a class="list-group-item" routerLinkActive="active" routerLink="/admin-panel/products-panel"> Products</a>
-      <a class="list-group-item" routerLinkActive="active" routerLink="/admin-panel/categories-panel">Categories</a>
+    <div class="categories-side col-3">
+      <div class="categories-list list-group">
+        <a class="list-group-item" routerLinkActive="active" routerLink="/admin-panel/products-panel"> Products</a>
+        <a class="list-group-item" routerLinkActive="active" routerLink="/admin-panel/categories-panel">Categories</a>
+      </div>
+
     </div>
-    <div class="product-side col-lg-8 d-flex flex-fill gap-3">
+    <div class="product-side col-9 ">
       <router-outlet></router-outlet>
     </div>
   </div>

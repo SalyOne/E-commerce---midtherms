@@ -1,0 +1,11 @@
+@import "src/assets/scss/common";
+label{
+  font-family: $title-font;
+}
+input{
+  font-family: $text-font;
+}
+.error{
+  font-family: $text-font;
+  color:red;
+}

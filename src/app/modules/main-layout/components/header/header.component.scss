@@ -54,6 +54,15 @@
         }
       }
     }
+    .login-dropdown{
+      a{
+        width: 100%;
+        margin: 0;
+        &:active{
+          background-color: transparent ;
+        }
+      }
+    }
   }
   .search-bar{
     font-family: $text-font;
