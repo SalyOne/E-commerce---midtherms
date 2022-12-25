@@ -1,19 +1,31 @@
-<header class="container-fluid  p-0 ">
-  <div class="row">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light w-100 px-3 d-flex align-items-center justify-content-between">
+<header class="container-fluid  p-0  header">
+  <div class="container ">
+    <nav class="navbar navbar-expand-lg w-100 px-3 d-flex align-items-center justify-content-between">
       <div class="image-container">
-        <img src="" alt="main logo" routerLink="/">
+        <h4 class="main-logo" routerLink="/"> E-commerce</h4>
       </div>
 
-
       <ul class=" main-menu d-flex justify-content-between align-items-center">
-        <li> <a routerLink="products"> Products</a></li>
+        <li>
+          <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
+            <input
+              type="search"
+              class="form-control search-bar"
+              placeholder="Search..."
+              aria-label="Search"
+              [ngModel]="searchInput"
+              (ngModelChange)="search($event)"
+              [ngModelOptions]="{standalone: true}"
+            >
+          </form>
+        </li>
+        <li> <a routerLinkActive="active" routerLink="products"> Products</a></li>
 
         <ng-container *ngIf="userLoggedIn; else notAuth">
-          <li> <a routerLink="/cart">Cart <span class="badge bg-secondary"> {{cartCount$ | async }}</span></a>  <!--  {{cartCount}}--></li>
+          <li> <a routerLinkActive="active" routerLink="/cart">Cart <span class="badge button-primary"> {{cartCount$ | async }}</span></a>  <!--  {{cartCount}}--></li>
           <li>
             <div class="dropdown">
-              <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <button class="btn button-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                 {{user?.firstName}} {{ user?.lastName}}
               </button>
               <ul class="dropdown-menu">
@@ -29,18 +41,6 @@
           <li> <a routerLink="/auth/register"> Register </a> </li>
         </ng-template>
 
-        <li>
-          <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
-          <input
-            type="search"
-            class="form-control"
-            placeholder="Search..."
-            aria-label="Search"
-            [ngModel]="searchInput"
-            (ngModelChange)="search($event)"
-            [ngModelOptions]="{standalone: true}"
-          >
-        </form> </li>
       </ul>
     </nav>
   </div>

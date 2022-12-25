@@ -1,14 +1,64 @@
-.main-menu{
-  display: flex;
+@import "src/assets/scss/common";
+.header{
+  height: 80px;
+  position: fixed;
+  width: 100%;
+  z-index: 999;
+  .main-logo{
+    font-family: 'Rubik Vinyl', cursive;
+    cursor: pointer;
+  }
+  .main-menu{
+    display: flex;
+    margin: 0;
+    li{
+      list-style-type: none;
+      display: inline-block;
+      padding: 10px;
+      a{
+        text-decoration: none;
+        color: black;
+        font-family: 'Dosis', sans-serif;
+        cursor: pointer;
+        transition: 3ms;
+        position: relative;
+        margin: 0 12px;
+        &.active{
+          color: red;
+        }
 
-  li{
-    list-style-type: none;
-    display: inline-block;
-    padding: 10px;
+        &:after{
+          content: "";
+          display: block;
+          width: 0;
+          height: 1px;
+          background-color: $primary-color;
+          position: absolute;
+          left: 50%;
+          bottom: 0;
+          transition: 0.3s;
+          transform:translateX(-50%);
+        }
+        .badge{
+          transform: translateY(-10px);
+        }
 
-    a{
-      text-decoration: none;
-      color: black;
+        &:hover{
+
+          &:after{
+            width: 100%;
+          }
+        }
+      }
     }
   }
+  .search-bar{
+    font-family: $text-font;
+      &:focus{
+        box-shadow: 0 0 0 0.25rem rgba($primary-color, 0.3);
+        border-color: $primary-color;
+      }
+  }
 }
+
+

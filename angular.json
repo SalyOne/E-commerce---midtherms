@@ -30,6 +30,7 @@
             "styles": [
               "./node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/assets/css/all.css",
+              "src/assets/scss/common.scss",
               "src/styles.scss"
             ],
             "scripts": [

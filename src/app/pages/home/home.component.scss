@@ -1,0 +1,44 @@
+@import "src/assets/scss/common";
+
+.banner-container{
+  background-color: $main-color;
+  position: relative;
+  .image-container{
+    position: relative;
+    width: 100%;
+    height: 60vh;
+    overflow: hidden;
+    opacity: 0.8;
+    img{
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      background-attachment: fixed;
+    }
+  }
+  .banner-text{
+    position: absolute;
+    top: 50%;
+    right: 0;
+    left: auto;
+    transform: translateY(-50%);
+    font-family: 'Rubik Vinyl', cursive;
+    text-transform: uppercase;
+    text-align: right;
+    width: 50%;
+    h1{
+      font-size: 5rem;
+      color: $primary-color;
+    }
+  }
+  .banner-text-wrapper{
+    position: absolute;
+    top: 0;
+    left: 50%;
+    height: 100%;
+    /* margin: auto; */
+    /* height: 70vh; */
+    transform: translateX(-50%);
+  }
+}

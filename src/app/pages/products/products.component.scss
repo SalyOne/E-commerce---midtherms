@@ -1,0 +1,21 @@
+@import "src/assets/scss/common";
+.search-bar{
+  font-family: $text-font;
+  &:focus{
+    box-shadow: 0 0 0 0.25rem rgba($primary-color, 0.3);
+    border-color: $primary-color;
+  }
+}
+.categories-side{
+  .categories-list{
+    a{
+      font-family: $text-font;
+      text-transform: capitalize;
+      font-size: 18px;
+      &.active{
+        border-color: $primary-color;
+        background-color:$primary-color ;
+      }
+    }
+  }
+}
