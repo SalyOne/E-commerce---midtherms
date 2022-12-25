@@ -19,9 +19,6 @@ export class ProductsService extends BaseService {
     return this.get<IProduct[]>('product', params)
   }
 
-
-
-
   getAllProd():Observable<IProduct[]>{
     return this.get<IProduct[]>('product')
   }

@@ -4,9 +4,12 @@
   position: fixed;
   width: 100%;
   z-index: 999;
+  background-color: #fff;
+  box-shadow: 0 4px 4px -3px rgba($main-color, 0.4);
   .main-logo{
     font-family: 'Rubik Vinyl', cursive;
     cursor: pointer;
+    font-size: 2rem;
   }
   .main-menu{
     display: flex;

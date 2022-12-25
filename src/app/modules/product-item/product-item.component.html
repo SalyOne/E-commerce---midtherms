@@ -1,15 +1,14 @@
 
-<div
+<div class="product-item-container"
   *ngIf="product"
-  [routerLink]="['/products',product.id]"
-  class="product-item-container" >
+  [routerLink]="['/products',product.id]" >
   <div class="image-container">
     <img src="{{product.image}}" alt="product image">
   </div>
   <div class="content-container">
-    <h2 class="title">{{product.name}}</h2>
-    <p> {{product.price | currency: 'USD'}}</p>
-    <button  class="btn btn-primary" (click)="addToCart($event)" *ngIf="userLoggedIn">add to card</button>
+    <h3 class="title">{{product.name}}</h3>
+    <p class="price"> {{product.price | currency: 'USD'}}</p>
+    <button  class="btn button-primary" (click)="addToCart($event)" *ngIf="userLoggedIn">add to card</button>
   </div>
 </div>
 

@@ -24,6 +24,7 @@ export class ProductsComponent implements OnInit,OnDestroy {
   sub$ = new Subject();
   categoryId?: number
   search: any;
+  areProducts: boolean  = false;
 
 
   ngOnInit(): void {
@@ -47,6 +48,7 @@ export class ProductsComponent implements OnInit,OnDestroy {
         this.getAllProducts()
       }
   }
+
   getAllProducts(){
     const params = {
       categoryId: this.categoryId || null,
@@ -56,6 +58,12 @@ export class ProductsComponent implements OnInit,OnDestroy {
      .pipe(takeUntil(this.sub$))
      .subscribe((res)=>{
         this.products = res
+       if (this.products.length === 0){
+         this.areProducts= true
+       }else{
+         this.areProducts= false
+
+       }
     })
   }
 

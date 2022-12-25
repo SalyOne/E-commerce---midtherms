@@ -3,6 +3,7 @@ import {AuthService} from "../../core/services/auth.service";
 import {IProduct} from "../../core/interfaces/products.interface";
 import {CartService} from "../../core/services/cart.service";
 import {Subject, takeUntil} from "rxjs";
+import {ICategory} from "../../core/interfaces/category.interface";
 
 @Component({
   selector: 'app-product-item',
@@ -15,6 +16,8 @@ export class ProductItemComponent implements OnInit , OnDestroy{
   }
 
   @Input() product: IProduct = {} as IProduct;
+
+
   sub$ = new Subject();
 
 

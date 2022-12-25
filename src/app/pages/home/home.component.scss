@@ -42,3 +42,10 @@
     transform: translateX(-50%);
   }
 }
+
+.category-section{
+  .product-items-carousel{
+    display: flex;
+    flex-direction: row;
+  }
+}

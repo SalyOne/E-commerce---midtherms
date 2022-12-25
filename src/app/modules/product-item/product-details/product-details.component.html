@@ -1,22 +1,25 @@
-<div class="d-flex gap-4">
-  <div class="flex-initial ">
-    <img src="{{product?.image}}" width="300px"/>
-  </div>
-  <div class="flex-fill">
-    <h1>{{product?.name}}</h1>
-    <div [innerText]="product?.description"></div>
-    <div>
-      <input type="number" [(ngModel)]="quantity" />
-      <button class="btn btn-primary" (click)="addToCart()">Add to cart</button>
+<div class="container">
+  <div class="d-flex gap-4 product-detail-container">
+    <div class=" image-container">
+      <img src="{{product?.image}}" width="300px"/>
     </div>
-    <div class="mb-4">
-      <div *ngIf="message" class="alert alert-success">
-        {{message}}
+    <div class="flex-fill content-container">
+      <h1 class="title">{{product?.name}}</h1>
+      <p class="description" [innerText]="product?.description"></p>
+      <div class="input-container">
+        <input type="number" [(ngModel)]="quantity" />
+        <button class="btn button-primary" (click)="addToCart()">Add to cart</button>
+      </div>
+      <div class="mb-4 mt-1">
+        <div *ngIf="message" class="alert alert-success">
+          {{message}}
+        </div>
       </div>
     </div>
   </div>
-</div>
 
-<div class="product-items">
-  <app-product-item *ngFor="let similarProduct of similarProducts" [product]="similarProduct"></app-product-item>
+  <div class="product-items">
+    <h4 class="title">Similar Products:</h4>
+    <app-product-item *ngFor="let similarProduct of similarProducts" [product]="similarProduct"></app-product-item>
+  </div>
 </div>

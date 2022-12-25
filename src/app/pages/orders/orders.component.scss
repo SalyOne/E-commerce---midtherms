@@ -1,0 +1,24 @@
+@import "src/assets/scss/common";
+
+.order-table{
+  margin: 20px 0;
+  thead{
+    tr{
+      th{
+        font-family: $title-font;
+        text-transform: capitalize;
+      }
+    }
+  }
+  tbody{
+    tr{
+      th, td{
+        font-family: $title-font;
+        text-transform: capitalize;
+        font-size: 18px;
+      }
+    }
+
+  }
+}
+

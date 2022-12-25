@@ -1,3 +1,47 @@
+@import "src/assets/scss/common";
+.cart-table{
+  thead{
+    tr{
+      th{
+        font-family: $title-font;
+        text-transform: capitalize;
+      }
+    }
+  }
+  tbody{
+    tr{
+      th, td{
+        font-family: $text-font;
+        text-transform: capitalize;
+        font-size: 18px;
+      }
+    }
+
+  }
+}
+
+.checkout-box{
+  ul{
+    li{
+      font-family: $title-font;
+      text-transform: capitalize;
+    }
+  }
+}
 img{
   width: 90px;
+}
+
+.message-box{
+  font-family: $title-font;
+  text-transform: capitalize;
+  font-size: 18px;
+  text-align: center;
+  padding: 70px 0;
+  a{
+    color: $primary-color;
+    &:hover{
+      color: $main-color
+    }
+  }
 }

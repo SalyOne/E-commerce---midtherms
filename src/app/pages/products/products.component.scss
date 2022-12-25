@@ -1,4 +1,9 @@
 @import "src/assets/scss/common";
+
+.product-component{
+  padding: 40px 0;
+}
+
 .search-bar{
   font-family: $text-font;
   &:focus{
@@ -18,4 +23,12 @@
       }
     }
   }
+}
+
+.message-box{
+  font-family: $title-font;
+  text-transform: capitalize;
+  font-size: 18px;
+  text-align: center;
+  padding-top: 70px;
 }
