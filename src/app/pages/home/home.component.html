@@ -10,11 +10,21 @@
     </div>
   </div>
 
-<!--  <section class="category-section" *ngFor="let category of categories">-->
+  <section class="category-section container" >
 <!--    <h3 class="title">{{category.name}}</h3>-->
 <!--    <h3 class="title">{{category.id}}</h3>-->
 <!--    <div class="product-items-carousel">-->
-<!--      <app-product-item *ngFor="let similarProduct of similarProducts" (categoryId)="category.id" [product]="similarProduct"></app-product-item>-->
 <!--    </div>-->
-<!--  </section>-->
+    <div class="row">
+      <div class="col-4 mt-4" *ngFor="let prod of products$ |async">
+        <app-product-item   [product]="prod"></app-product-item>
+      </div>
+    </div>
+
+
+  </section>
+
+
+
+
 

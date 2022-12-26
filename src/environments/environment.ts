@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'https://seal-app-l3d7u.ondigitalocean.app/'
+  apiUrl: 'http://localhost:8080/'
+  // apiUrl: 'https://seal-app-l3d7u.ondigitalocean.app/'
 };
 
 /*
